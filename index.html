@@ -4,27 +4,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"> </script>
 <script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $.ajax
-	(
-		{
-			url: 'https://sasikumar1235.github.io/agarathi/search/a/ambassador',
-			success: function(result){
 
-				$("#div1").html(marked(result));
-				}
-		}
-	);
+$(document).ready(function(){
+
+  $("button").click(function(){
+    var a=$('#txtsearch').val();
+    var res = a.charAt(0);
+    $.ajax({url:'https://sasikumar1235.github.io/agarathi/search/'+res+'/'+$('#txtsearch').val(),success: function(result){$("#div1").html(marked(result));}});
+
   });
 });
 </script>
 </head>
 <body>
+  <label>First name:</label>
+  <input type="text" id="txtsearch" name=""><br><br>
+
+
+<button>search results</button>
 
 <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
-
-<button>Get External Content</button>
 
 </body>
 </html>
