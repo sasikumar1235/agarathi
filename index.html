@@ -1,59 +1,30 @@
-FRONT page
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-#myDIV {
-  width: 100%;
-  padding: 50px 0;
-  text-align: center;
-  background-color: lightblue;
-  margin-top: 20px;
-}
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"> </script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax
+	(
+		{
+			url: 'https://sasikumar1235.github.io/agarathi/search/a/ambassador',
+			success: function(result){
+
+				$("#div1").html(marked(result));
+				}
+		}
+	);
+  });
+});
+</script>
 </head>
 <body>
-<br></br>
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-<button onclick="myFunction()">Try it</button>
-<p>Click the "Try it" button to toggle between hiding and showing the DIV element:</p>
 
-<div id="myDIV">
-search result appear here
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
 
-fname 
-</div>
-
-<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
-
-<script>
-file = fopen(getScriptPath("task_list.txt"), 0);
-file_length = flength(file);
-content = fread(file, file_length);
-var div1 = document.getElementById('myDIV');
-div1.innerHTML =content;
-
-
-
-function myFunction()
-  {
-        var input = document.getElementById('fname');
-        var div = document.getElementById('myDIV');
-        div.innerHTML =input.value;
-  }
-
-    
- 
-
-
-</script>
+<button>Get External Content</button>
 
 </body>
 </html>
-
-
-
-
